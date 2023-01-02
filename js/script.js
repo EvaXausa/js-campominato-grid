@@ -9,28 +9,27 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed 
 const grid = document.getElementById("grid");
 const playButton = document.getElementById("play-button");
 
-function play() 
-  // Funzioni interne al gioco
+function play() {
+  //Funzioni interne al gioco
   const createCell = (number) => {
     const cell = document.createElement("div");
     cell.classList.add("cell");
     cell.append(number);
     return cell;
-  }
+  };
   //Cambiamo il testo del bottone in 'Ricomincia'
   playButton.innerText = "Ricomincia";
   //Svuota la griglia
   grid.innerHTML = "";
-  // Svolgimento
+  // Svolgimento effettivo
 
   for (let i = 1; i <= 100; i++) {
     const cell = createCell(i);
-    cell.addEventListener('click', function () {
-        cell.classList.add('clicked');
-        console.log(i);
-    })
+    cell.addEventListener("click", function () {
+      cell.classList.add("clicked");
+      console.log(i);
+    });
     grid.appendChild(cell);
+  }
 }
-playButton.addEventListener('click',play);
-
-
+playButton.addEventListener("click", play);
